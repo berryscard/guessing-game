@@ -1,0 +1,110 @@
+print("""WELCOME TO GUESS GAME
+
+HOW TO PLAY:
+1) Firstly, enter your name.
+2) Secondly, You should choose a category. Categories are animals, countries and fruits.
+3) Thirdly, you will recieve the number of items in the category you choose
+4) Guess what could be those items.
+5) You will gain +1 points if you can guess corectly and lose 1 points, otherwise.
+
+GOOD LUCK!!! 
+""")
+user_name = input("please enter your name: ") #we took an input of user's name
+print("Hello", user_name)
+categories = {"animals" : "a", "countries": "c", "fruits" : "f"} # a dict of categories and the letter values that represents those keys
+print("Categories are: ", categories)
+
+your_choose = input("Type the capital letter of the category you choose: ") #user should decide the category he/she will attend the game
+
+def animals(): 
+    sfile = open("animals.txt", "r")
+    st = sfile.read()
+    lst = st.split()
+    num_lines = len(lst)
+    print("In animals category, there are ", num_lines, " animals. Guess!")
+    guess_animal= " "
+    score = 0
+
+    while guess_animal != "finish":
+        
+        guess_animal =input("What is your guess? ")
+        if guess_animal in lst:
+            score = score + 1
+            print("your score is: " , score)
+        elif guess_animal not in lst and guess_animal != "finish":
+            score =score -1
+            print("your score is: " ,score)
+            continue
+        elif guess_animal == "finish":
+            print("Your final score is: ", score)
+            break
+    sfile.close
+
+
+def countries():
+    sfile = open("countries.txt", "r")
+    st = sfile.read()
+    lst = st.split()
+    num_lines = len(lst)
+    print("In countries category, there are ", num_lines, " countries. Guess!")
+    guess_country = " "
+    score = 0
+
+    while guess_country != "finish":
+        
+        guess_country =input("What is your guess? ")
+        if guess_country in lst:
+            score = score + 1
+            print("your score is: " , score)
+        elif guess_country not in lst and guess_country != "finish":
+            score =score -1
+            print("your score is: " ,score)
+            continue
+        elif guess_country == "finish":
+            print("Your final score is: ", score)
+            break
+    sfile.close
+
+
+def fruits():
+    sfile = open("fruits.txt", "r")
+    st= sfile.read()
+    lst=st.split()
+    num_lines=len(lst)
+    #print(lst)
+    print("In fruits category, there are ", num_lines, "fruits. Guess!")
+    guess_fruits = " "
+    score = 0
+
+    while guess_fruits != "finish":
+        
+        guess_fruits=input("What is your guess? ")
+        if guess_fruits in lst:
+            score = score + 1
+            print("your score is: " , score)
+        elif guess_fruits not in lst and guess_fruits != "finish":
+            score =score -1
+            print("your score is: " ,score)
+            continue
+        elif guess_fruits == "finish":
+            print("Your final score is: ", score)
+            break
+    sfile.close
+
+
+if your_choose == "a":
+    animals()
+elif your_choose == "c":
+    countries()
+elif your_choose == "f":
+    fruits()
+else:
+    print("Invalid letter, try again.")
+    
+
+
+
+
+
+
+
